@@ -6,7 +6,12 @@
 @{
     var userIsLoggedIn = this.User.IsLoggedIn();
     var userIsAdmin = this.User.IsAdmin();
-    var userIsLecturer = this.User.IsLecturer();
+    var userIsLecturer = false;
+    if (userIsLoggedIn){
+        userIsLecturer = this.User.IsLecturer();
+
+    }
+    /*var userIsLecturer = false;*/
 
     var adminClassName = userIsLoggedIn && (userIsAdmin || userIsLecturer) ? "admin" : string.Empty;
     var loggedUserClassName = userIsLoggedIn ? "logged" : string.Empty;
@@ -17,7 +22,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - SoftUni Judge</title>
+    <title>@ViewBag.Title - Sirma Judge</title>
     <meta name="description" content="Online system for programming competitions" />
     @Styles.Render("~/Content/bootstrap/bootstrap", "~/Content/KendoUI/kendo", "~/Content/styles")
     @RenderSection("styles", required: false)
@@ -43,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand">SoftUni Judge</a>
+                <a href="/" class="navbar-brand">Sirma Judge</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">

@@ -49,6 +49,7 @@
             }
 
             context.Roles.AddOrUpdate(new IdentityRole(GlobalConstants.AdministratorRoleName));
+            context.Roles.AddOrUpdate(new IdentityRole(GlobalConstants.LecturerRoleName));
         }
 
         protected void SeedCheckers(OjsDbContext context)
